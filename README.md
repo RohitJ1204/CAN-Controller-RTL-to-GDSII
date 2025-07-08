@@ -1,4 +1,3 @@
-# CAN-Controller-RTL-to-GDSII
 # CAN Controller – RTL to Netlist Implementation 🚗📡
 
 This project demonstrates a **CAN (Controller Area Network) Controller** implemented in **Verilog HDL**, and taken through **RTL design**, **testbench verification**, **synthesis**, and **report generation** (area, power, timing, gate count). This repository is structured to showcase my **VLSI design expertise**, along with my understanding of digital logic design, STA, and EDA toolchains.
@@ -9,12 +8,13 @@ This project demonstrates a **CAN (Controller Area Network) Controller** impleme
 
 | Folder/File             | Description |
 |-------------------------|-------------|
-| `src/`                  | Verilog RTL source code for CAN Controller |
-| `tb/`                   | Testbench file used for functional simulation |
-| `constraints/`          | SDC constraints and Tcl RC script |
-| `reports/`              | Post-synthesis reports (area, timing, gate, power) |
-| `netlist/`              | Synthesized gate-level netlist |
-| `README.md`             | Project documentation (this file) |
+| [`src/CAN_Controller.v`](src/CAN_Controller.v)               | Verilog RTL source code for CAN Controller |
+| [`tb/tb_CAN_Controller.v`](tb/tb_CAN_Controller.v)           | Testbench file used for functional simulation |
+| [`constraints/constraints_top.sdc`](constraints/constraints_top.sdc) | SDC timing constraint file |
+| [`constraints/rcscript.tcl`](constraints/rcscript.tcl)       | TCL synthesis automation script |
+| [`reports/`](reports/)                                      | Post-synthesis reports (area, timing, gate, power) |
+| [`netlist/CAN_Controller_netlist.v`](netlist/CAN_Controller_netlist.v) | Synthesized gate-level netlist |
+| [`README.md`](README.md)                                    | Project documentation (this file) |
 
 ---
 
@@ -29,8 +29,7 @@ The **CAN protocol** is a communication standard used primarily in **automotive 
 - Two-wire differential signaling (CAN-H and CAN-L)
 - Frame types: data, remote, error, and overload
 
-### 📤 Frame Structure:
-
+### 📤 Frame Structure:                                                                                                           
 - **SOF**: Start of Frame  
 - **Identifier**: 11-bit or 29-bit priority-based ID  
 - **RTR**: Remote Transmission Request  
@@ -55,7 +54,7 @@ The **CAN protocol** is a communication standard used primarily in **automotive 
 
 ---
 
-## 📂 RTL Module: `CAN_Controller.v`
+## 📂 RTL Module: [`CAN_Controller.v`](src/CAN_Controller.v)
 
 This file describes the RTL architecture of the CAN Controller. Here’s a brief overview of what’s implemented:
 
@@ -77,7 +76,7 @@ This file describes the RTL architecture of the CAN Controller. Here’s a brief
 
 ---
 
-## 🧪 Testbench: `tb_CAN_Controller.v`
+## 🧪 Testbench: [`tb_CAN_Controller.v`](tb/tb_CAN_Controller.v)
 
 The testbench is used to **verify the functional correctness** of the CAN controller. Here's what it does:
 
@@ -107,13 +106,13 @@ The testbench is used to **verify the functional correctness** of the CAN contro
 
 ## 🧰 Constraints & Automation
 
-### `constraints_top.sdc`
+### [`constraints_top.sdc`](constraints/constraints_top.sdc)
 Defines the **timing constraints** for synthesis:
 - Clock definition: frequency, waveform
 - Input/output delays
 - Timing exceptions (false paths, multicycle paths)
 
-### `rcscript.tcl`
+### [`rcscript.tcl`](constraints/rcscript.tcl)
 TCL script to automate synthesis in RC Compiler:
 - Sets up design libraries and constraints
 - Reads Verilog files and applies SDC
@@ -127,10 +126,10 @@ Each report gives insight into the design metrics post-synthesis.
 
 | Report File | Description |
 |-------------|-------------|
-| `CAN_Controller_area.rpt` | Cell usage, hierarchical area breakdown |
-| `CAN_Controller_power.rpt` | Dynamic + leakage power consumption |
-| `CAN_Controller_timing.rpt` | Slack, setup/hold violations |
-| `CAN_Controller_gatescc.rpt` | Gate count (in terms of NAND2 equivalents) |
+| [`CAN_Controller_area.rpt`](reports/CAN_Controller_area.rpt)       | Cell usage, hierarchical area breakdown |
+| [`CAN_Controller_power.rpt`](reports/CAN_Controller_power.rpt)     | Dynamic + leakage power consumption |
+| [`CAN_Controller_timing.rpt`](reports/CAN_Controller_timing.rpt)   | Slack, setup/hold violations |
+| [`CAN_Controller_gatescc.rpt`](reports/CAN_Controller_gatescc.rpt) | Gate count (in terms of NAND2 equivalents) |
 
 ---
 
@@ -167,7 +166,8 @@ Each report gives insight into the design metrics post-synthesis.
 
 ## 👤 Author
 
-**Rohit J**-[LinkedIn Profile](https://www.linkedin.com/in/rohitj264/)
+**Rohit J**  
+[LinkedIn Profile](https://www.linkedin.com/in/rohitj264/)
 
 ---
 
